@@ -13,30 +13,31 @@ import {
   Leaf,
   ShieldCheck,
   Sparkles,
+  ChartArea,
 } from "lucide-react";
 
-import heroCinnamon from "@/assets/hero-cinnamon.png";
+import heroCinnamon from "@/assets/hero.png";
 import aboutBottle from "@/assets/about-bottle.png";
-import peppermint from "@/assets/peppermint.png";
-import lemon from "@/assets/lemon.png";
-import bergamot from "@/assets/bergamot.png";
-import jasmine from "@/assets/jasmine.png";
-import gardenia from "@/assets/gardenia.png";
-import chamomile from "@/assets/chamomile.png";
+import one from "@/assets/1.png";
+import two from "@/assets/2.png";
+import three from "@/assets/3.png";
+import four from "@/assets/4.png";
+
 import avatar1 from "@/assets/avatar1.jpg";
 import avatar2 from "@/assets/avatar2.jpg";
+import jasdaLogo from "@/assets/jasda-logo.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
 const products = [
-  { name: "PURE VIRGIN COCONUT OIL (250ML)", img: peppermint, desc: "Perfect for daily skincare, hair nourishment, massage therapy, and healthy cooking." },
-  { name: "PURE VIRGIN COCONUT OIL (500ML)", img: lemon, desc: "An ideal family-size bottle for everyday beauty and wellness routines." },
-  { name: "COLD-PRESSED COCONUT OIL (1L)", img: bergamot, desc: "Premium quality coconut oil for homes, salons, wellness practitioners, and businesses." },
-  { name: "HAIR GROWTH BLEND", img: jasmine, desc: "Specially formulated to nourish dry scalp, reduce breakage, and strengthen natural hair." },
-  { name: "BABY CARE COCONUT OIL", img: gardenia, desc: "Gentle, chemical-free care for delicate baby skin and scalp." },
-  { name: "WHOLESALE PACK", img: chamomile, desc: "Designed for retailers, distributors, salons, and wellness businesses." },
+  { name: "PURE VIRGIN COCONUT OIL (250ML)", img: one, desc: "Perfect for daily skincare, hair nourishment, massage therapy, and healthy cooking." },
+  { name: "PURE VIRGIN COCONUT OIL (500ML)", img: two, desc: "An ideal family-size bottle for everyday beauty and wellness routines." },
+  { name: "COLD-PRESSED COCONUT OIL (1L)", img: three, desc: "Premium quality coconut oil for homes, salons, wellness practitioners, and businesses." },
+  { name: "HAIR GROWTH BLEND", img: four, desc: "Specially formulated to nourish dry scalp, reduce breakage, and strengthen natural hair." },
+  //   { name: "BABY CARE COCONUT OIL", img: gardenia, desc: "Gentle, chemical-free care for delicate baby skin and scalp." },
+  //   { name: "WHOLESALE PACK", img: chamomile, desc: "Designed for retailers, distributors, salons, and wellness businesses." },
 ];
 
 const partners = ["Retail Stores", "Beauty Clinics", "Spas", "Wellness Brands", "Distributors"];
@@ -62,7 +63,9 @@ function Nav() {
   return (
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-border/60">
       <div className="mx-auto max-w-[1200px] px-6 h-20 flex items-center justify-between">
-        <a href="/" className="text-sm font-bold tracking-[0.2em] text-ink">JASDA STORES</a>
+        <a href="/" className="flex items-center">
+          <img src={jasdaLogo} alt="JASDA Stores" className="h-9 w-auto" width={779} height={320} />
+        </a>
         <nav className="hidden md:flex items-center gap-8 text-[13px] text-ink/80">
           {["Home", "Shop", "About Us", "Contact"].map((l, i) => (
             <span key={l} className="flex items-center gap-8">
@@ -84,7 +87,7 @@ function Nav() {
   );
 }
 
-function GreenDot({ className = "" }: { className?: string }) {
+function BrandDot({ className = "" }: { className?: string }) {
   return <span className={`absolute rounded-full bg-brand ${className}`} />;
 }
 
@@ -92,10 +95,10 @@ function Hero() {
   return (
     <section className="relative overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 pt-14 pb-24 grid lg:grid-cols-2 gap-10 items-center relative">
-        <GreenDot className="h-2 w-2 top-6 left-1/3" />
-        <GreenDot className="h-3 w-3 top-32 right-10" />
-        <GreenDot className="h-2 w-2 bottom-24 left-8" />
-        <GreenDot className="h-2 w-2 bottom-10 right-1/2" />
+        <BrandDot className="h-2 w-2 top-6 left-1/3" />
+        <BrandDot className="h-3 w-3 top-32 right-10" />
+        <BrandDot className="h-2 w-2 bottom-24 left-8" />
+        <BrandDot className="h-2 w-2 bottom-10 right-1/2" />
         <svg className="absolute bottom-0 left-0 w-72 h-32 text-brand/70 pointer-events-none" viewBox="0 0 300 120" fill="none">
           <path d="M0 100 C 80 20, 200 20, 290 90" stroke="currentColor" strokeWidth="1.5" fill="none" />
         </svg>
@@ -112,8 +115,8 @@ function Hero() {
               SHOP COLLECTION
             </button>
             <button className="flex items-center gap-3 text-[13px] font-medium text-ink">
-              <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-white">
-                <Play className="h-4 w-4 fill-white" />
+              <span className="grid h-9 w-9 place-items-center rounded-full bg-brand text-ink">
+                <Play className="h-4 w-4 fill-ink" />
               </span>
               Our Story
             </button>
@@ -136,22 +139,20 @@ function Hero() {
             <img
               src={heroCinnamon}
               alt="JASDA cold-pressed coconut oil bottle"
-              className="float-bottle relative z-10 w-[420px] max-w-full drop-shadow-[0_40px_40px_rgba(0,0,0,0.15)]"
+              className="float-bottle relative z-10 w-[720px] max-w-full drop-shadow-[0_40px_40px_rgba(0,0,0,0.15)]"
               width={1024}
               height={1024}
             />
-            <div className="absolute top-20 -left-4 z-20 flex items-center gap-2 rounded-xl bg-brand px-3 py-2 text-white shadow-lg">
+            <div className="absolute top-20 -left-4 z-20 flex items-center gap-2 rounded-xl bg-brand px-3 py-2 text-ink shadow-lg">
               <Truck className="h-4 w-4" />
               <div className="text-[10px] leading-tight">
                 <div className="font-bold">Fast Delivery</div>
                 <div>Nationwide</div>
               </div>
             </div>
-            <div className="absolute top-24 right-0 z-20 grid h-10 w-10 place-items-center rounded-full bg-yellow-300 text-lg shadow-lg">
-              😊
-            </div>
-            <GreenDot className="h-2 w-2 top-2 right-16" />
-            <GreenDot className="h-2 w-2 bottom-20 -left-2" />
+
+            <BrandDot className="h-2 w-2 top-2 right-16" />
+            <BrandDot className="h-2 w-2 bottom-20 -left-2" />
           </div>
         </div>
       </div>
@@ -169,7 +170,7 @@ function FeatureBanner() {
         <p className="hidden md:block flex-1 text-[12px] leading-relaxed text-white/70 max-w-xs">
           JASDA Cold-Pressed Coconut Oil is rich in natural antioxidants and essential fatty acids that deeply hydrate the skin, strengthen hair, and promote healthy scalp care for the entire family.
         </p>
-        <button aria-label="Learn more" className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-brand text-white hover:scale-105 transition-transform">
+        <button aria-label="Learn more" className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-brand text-ink hover:scale-105 transition-transform">
           <ArrowRight className="h-6 w-6" />
         </button>
       </div>
@@ -220,7 +221,7 @@ function Products() {
             <h3 className="mt-4 text-[13px] font-bold tracking-[0.15em] text-ink">{p.name}</h3>
             <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground max-w-[220px]">{p.desc}</p>
             <div className="mt-4 flex items-center gap-3 text-[12px]">
-              <button className="font-semibold text-ink hover:text-brand">Explore Product</button>
+              <button className="font-semibold text-ink hover:text-brand">Add to cart</button>
               <span className="text-muted-foreground">|</span>
               <span className="text-muted-foreground">$32.99</span>
             </div>

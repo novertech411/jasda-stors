@@ -48,9 +48,9 @@
   --accent-foreground: oklch(0.15 0 0);
   --border: oklch(0.92 0 0);
   --input: oklch(0.92 0 0);
-  --ring: oklch(0.75 0.16 150);
-  --brand: oklch(0.72 0.18 148);
-  --brand-foreground: oklch(1 0 0);
+  --ring: #ebb922;
+  --brand: #ebb922;
+  --brand-foreground: oklch(0.15 0 0);
   --ink: oklch(0.13 0 0);
   --subtle: oklch(0.55 0 0);
 }
