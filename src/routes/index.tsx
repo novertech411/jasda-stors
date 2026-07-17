@@ -16,16 +16,16 @@ import {
   ChartArea,
 } from "lucide-react";
 
-import heroCinnamon from "@/assets/hero.png";
-import aboutBottle from "@/assets/about-bottle.png";
-import one from "@/assets/1.png";
-import two from "@/assets/2.png";
-import three from "@/assets/3.png";
-import four from "@/assets/4.png";
+import heroCinnamon from "@/assets/hero.webp";
+import aboutBottle from "@/assets/product.webp";
+import one from "@/assets/1.webp";
+import two from "@/assets/2.webp";
+import three from "@/assets/3.webp";
+import four from "@/assets/4.webp";
 
-import avatar1 from "@/assets/avatar1.jpg";
-import avatar2 from "@/assets/avatar2.jpg";
-import jasdaLogo from "@/assets/jasda-logo.png";
+import avatar1 from "@/assets/avatar1.webp";
+import avatar2 from "@/assets/avatar2.webp";
+import jasdaLogo from "@/assets/jasda-logo.webp";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -64,7 +64,7 @@ function Nav() {
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur border-b border-border/60">
       <div className="mx-auto max-w-[1200px] px-6 h-20 flex items-center justify-between">
         <a href="/" className="flex items-center">
-          <img src={jasdaLogo} alt="JASDA Stores" className="h-9 w-auto" width={779} height={320} />
+          <img src={jasdaLogo} alt="JASDA Stores" className="h-9 w-auto" width={480} height={197} />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-[13px] text-ink/80">
           {["Home", "Shop", "About Us", "Contact"].map((l, i) => (
@@ -140,8 +140,9 @@ function Hero() {
               src={heroCinnamon}
               alt="JASDA cold-pressed coconut oil bottle"
               className="float-bottle relative z-10 w-[720px] max-w-full drop-shadow-[0_40px_40px_rgba(0,0,0,0.15)]"
-              width={1024}
-              height={1024}
+              width={1200}
+              height={1200}
+              fetchPriority="high"
             />
             <div className="absolute top-20 -left-4 z-20 flex items-center gap-2 rounded-xl bg-brand px-3 py-2 text-ink shadow-lg">
               <Truck className="h-4 w-4" />
@@ -216,7 +217,7 @@ function Products() {
             className="group flex flex-col items-center text-center rounded-[18px] bg-white p-6 shadow-[0_4px_20px_-8px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.15)] hover:-translate-y-1 transition-all"
           >
             <div className="h-52 flex items-center justify-center">
-              <img src={p.img} alt={p.name} loading="lazy" width={512} height={512} className="h-full w-auto object-contain" />
+              <img src={p.img} alt={p.name} loading="lazy" decoding="async" width={600} height={600} className="h-full w-auto object-contain" />
             </div>
             <h3 className="mt-4 text-[13px] font-bold tracking-[0.15em] text-ink">{p.name}</h3>
             <p className="mt-2 text-[11px] leading-relaxed text-muted-foreground max-w-[220px]">{p.desc}</p>
@@ -240,8 +241,9 @@ function About() {
           src={aboutBottle}
           alt="JASDA coconut oil bottle"
           loading="lazy"
-          width={1024}
-          height={1024}
+          decoding="async"
+          width={760}
+          height={760}
           className="float-bottle w-[380px] max-w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.15)]"
         />
         <div className="absolute top-6 -left-2 flex items-center gap-2 rounded-xl bg-white shadow-lg px-3 py-2">
@@ -251,7 +253,7 @@ function About() {
           <p className="text-[10px] text-muted-foreground max-w-[120px] leading-tight">Authentic, chemical-free wellness made in Nigeria</p>
         </div>
         <div className="absolute bottom-16 -right-4 flex items-center gap-2 rounded-xl bg-white shadow-lg px-3 py-2">
-          <img src={avatar1} alt="" className="h-6 w-6 rounded-full object-cover" />
+          <img src={avatar1} alt="" loading="lazy" decoding="async" width={160} height={160} className="h-6 w-6 rounded-full object-cover" />
           <p className="text-[10px] text-muted-foreground max-w-[140px] leading-tight">Cold-pressed with traditional care and modern quality</p>
         </div>
         <Heart className="absolute top-0 left-1/3 h-6 w-6 fill-red-500 text-red-500" />
@@ -298,7 +300,7 @@ function Testimonials() {
       <div className="mt-12 grid md:grid-cols-3 gap-8">
         {items.map((t) => (
           <article key={t.name} className="rounded-[18px] bg-white p-8 shadow-[0_10px_30px_-12px_rgba(0,0,0,0.12)] text-center">
-            <img src={t.img} alt={t.name} className="mx-auto h-14 w-14 rounded-full object-cover" />
+            <img src={t.img} alt={t.name} loading="lazy" decoding="async" width={160} height={160} className="mx-auto h-14 w-14 rounded-full object-cover" />
             <h3 className="mt-4 text-sm font-semibold text-ink">{t.name}</h3>
             <p className="mt-4 text-[12px] leading-relaxed text-muted-foreground">{t.text}</p>
             <p className="mt-3 text-[13px] tracking-widest text-yellow-500">★★★★★</p>
